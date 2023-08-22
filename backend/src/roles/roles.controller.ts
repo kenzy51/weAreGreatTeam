@@ -12,11 +12,13 @@ export class RolesController {
   create(@Body() dto: CreateRoleDto) {
     return this.roleService.createRole(dto);
   }
+
   @ApiOperation({ description: "get by value of Role" })
   @Get("/:value")
   getByValue(@Param("value") value: string) {
     return this.roleService.getRoleByValue(value);
   }
+  
   @ApiOperation({ description: "Get all roles" })
   @Get()
   getAllRoles() {
