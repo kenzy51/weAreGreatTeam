@@ -8,7 +8,19 @@ async function start() {
   const config = new DocumentBuilder()
     .setTitle("Swagger application for backend")
     .setDescription("RESTApi documentation")
-    .build();
+    .addBearerAuth(
+      {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+        name: 'JWT',
+        description: 'Enter JWT token',
+        in: 'header',
+      },
+      'access-token', 
+    )
+    .build()
+    
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup("/api", app, document);
   app.enableCors();

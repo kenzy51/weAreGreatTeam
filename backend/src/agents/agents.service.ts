@@ -15,5 +15,4 @@ export class AgentsService {
     const agents = this.agentRepository.findAll()
     return agents
   }
- 
 }
