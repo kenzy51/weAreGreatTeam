@@ -5,6 +5,10 @@ import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagg
 import { User } from "./users.model";
 import { UpdateUserDto } from "./dto/update-user.dto";
 import { JwtAuthGuard } from "src/auth/jwt-auth.guard";
+import { Roles } from "src/auth/roles-auth.decorator";
+import { RolesGuard } from "src/auth/roles.guard";
+import { AddRoleDto } from "./dto/add-role.dto";
+import { BanUserDto } from "./dto/ban-user.dto";
 @ApiTags("Users")
 @Controller("users")
 export class UsersController {
@@ -19,11 +23,34 @@ export class UsersController {
   //
   @ApiOperation({ summary: "Get all users" })
   @ApiResponse({ status: 200, type: User })
-  @UseGuards(JwtAuthGuard)
+  @Roles("ADMIN")
+  @UseGuards(RolesGuard)
   @Get()
   @ApiBearerAuth('access-token') 
   getAll() {
     return this.usersService.getAllUsers();
+  }
+
+  //ВЫДАТЬ РОЛЬ
+  @ApiOperation({ summary: "Выдать роль" })
+  @ApiResponse({ status: 200})
+  @Roles("ADMIN")
+  @UseGuards(RolesGuard)
+  @Post('/role')
+  @ApiBearerAuth('access-token') 
+  addRole(@Body() dto:AddRoleDto) {
+    return this.usersService.addRole(dto);
+  }
+
+  //Забанить юзера
+  @ApiOperation({ summary: "Забанить юзера" })
+  @ApiResponse({ status: 200})
+  @Roles("ADMIN")
+  @UseGuards(RolesGuard)
+  @Post('/ban')
+  @ApiBearerAuth('access-token') 
+  banUser(@Body() dto:BanUserDto) {
+    return this.usersService.banUser(dto);
   }
   //
   @ApiOperation({ summary: "Get user by ID" })
