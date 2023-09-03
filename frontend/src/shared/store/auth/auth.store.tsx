@@ -21,7 +21,8 @@ class AuthStore {
             const { data } = await useAction(AuthService.signUp(payload), {
                 show: true,
             })
-            saveToken(data.access)
+            console.log(data.token)
+            saveToken(data.token)
             this.setIsAuth();
         }
         catch (err) {

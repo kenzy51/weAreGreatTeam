@@ -5,9 +5,9 @@ interface UseTokenResult {
 }
 
 export const activateToken = (): UseTokenResult => {
-    const saveToken = (token: string) => localStorage.setItem('access', token);
-    const removeToken = () => localStorage.removeItem('access');
-    const getToken = () => localStorage.getItem('access');
+    const saveToken = (token: string) => localStorage.setItem('token', token);
+    const removeToken = () => localStorage.removeItem('token');
+    const getToken = () => localStorage.getItem('token');
 
     return {
         saveToken,

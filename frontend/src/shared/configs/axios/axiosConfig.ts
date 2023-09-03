@@ -1,7 +1,7 @@
 import axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 
 interface LoginResponse {
-  access: string;
+  token: string;
   refresh: string;
 }
 
@@ -9,13 +9,13 @@ export const api = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
 });
 
-const removeToken = () => localStorage.removeItem('access');
-const saveToken = (token: string) => localStorage.setItem('access', token)
+const removeToken = () => localStorage.removeItem('token');
+const saveToken = (token: string) => localStorage.setItem('token', token)
 
 
 api.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    const token = localStorage.getItem("access");
+    const token = localStorage.getItem("token");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -51,8 +51,8 @@ const refreshAccessToken = async (): Promise<string> => {
         refresh_token: localStorage.getItem('refresh'),
       }
     );
-    saveToken(response.data.data.access);
-    return response.data.data.access;
+    saveToken(response.data.data.token);
+    return response.data.data.token;
   }
   catch (e) {
     removeToken();

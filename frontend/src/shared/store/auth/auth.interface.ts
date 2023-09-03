@@ -4,5 +4,5 @@ export interface SignInType {
 }
 
 export interface SignInResponseType {
-    access: string;
+    token: string;
 }

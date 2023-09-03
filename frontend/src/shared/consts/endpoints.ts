@@ -1,1 +1,1 @@
-export const AUTH_SIGN_IN = 'auth/registration';
+export const AUTH_SIGN_IN = 'auth/login';
