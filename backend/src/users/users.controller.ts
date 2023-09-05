@@ -4,7 +4,6 @@ import { UsersService } from "./users.service";
 import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { User } from "./users.model";
 import { UpdateUserDto } from "./dto/update-user.dto";
-import { JwtAuthGuard } from "src/auth/jwt-auth.guard";
 import { Roles } from "src/auth/roles-auth.decorator";
 import { RolesGuard } from "src/auth/roles.guard";
 import { AddRoleDto } from "./dto/add-role.dto";

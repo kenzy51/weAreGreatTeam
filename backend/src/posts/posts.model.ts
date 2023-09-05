@@ -30,7 +30,7 @@ export class Post extends Model<Post, PostCreationAttrs> {
   title: string;
 
   @ApiProperty({ example: "description", description: "some description" })
-  @Column({ type: DataType.STRING, allowNull: false })
+  @Column({ type: DataType.STRING, allowNull: false })  
   content: string;
 
   @ApiProperty({ example: "image", description: "some description" })
