@@ -82,5 +82,5 @@ const FormBlock = styled.div`
   border: 1px solid #e8e8e8;
   border-radius: 14px;
   background-color: #f0f2f5;
-  margin-top: 200px;
+  margin-top: 150px;
 `;
