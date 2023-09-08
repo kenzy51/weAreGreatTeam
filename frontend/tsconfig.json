@@ -1,48 +1,26 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "es5",
     "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
+      "dom",
+      "dom.iterable",
+      "esnext"
     ],
-    "noEmit": true,
-    "noImplicitAny": false,
-    "noImplicitThis": false,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
+    "allowJs": true,
     "skipLibCheck": true,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "module": "ESNext",
-    /* Bundler mode */
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
     "moduleResolution": "node",
-    "allowImportingTsExtensions": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
-    "baseUrl": ".",
-    "paths": {
-      "src/*": [
-        "./src/*",
-        ".dist/*",
-        ""
-      ],
-      "pages/*": [
-        "src/pages/*"
-      ],
-      "shared/*": [
-        "src/shared/*"
-      ],
-      "widgets/*": [
-        "src/widgets/*"
-      ]
-    },
-    /* Linting */
-    "strict": true,
-    "noFallthroughCasesInSwitch": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
   },
   "include": [
-    "src",
-    "./declaration.d.ts"
-  ],
+    "src"
+  ]
 }
