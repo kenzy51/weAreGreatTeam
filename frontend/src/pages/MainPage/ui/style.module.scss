@@ -1,0 +1,76 @@
+.container {
+  @apply
+   px-28 py-5
+}
+
+
+.navbar {
+  @apply
+  flex items-center 
+}
+
+.logo {
+  @apply
+  no-underline text-white cursor-pointer
+}
+
+.menu{
+  @apply
+  flex-1 text-center
+}
+
+.links {
+  @apply
+  list-none inline-block px-5
+}
+
+
+.menu_link {
+  @apply
+  relative ml-10 text-white font-custom 
+  tracking-[1px] hover:text-orange-500
+}
+
+.menu_link::after {
+  @apply 
+  content-[''] bg-orange-500 h-[3px] w-[0%]
+  left-0 -bottom-[5px] rounded-xl absolute duration-300 
+}
+
+.menu_link:hover::after{
+  @apply w-[100%]
+}
+
+.main {
+  @apply
+  flex justify-center items-center text-white mt-80
+}
+
+.main_title {
+  @apply
+  text-6xl font-custom
+}
+
+span{
+  @apply
+  text-orange-500 font-custom
+}
+
+
+.footer {
+  @apply
+   bg-orange-600 w-[100%] px-28 py-5 
+}
+
+.footer_title {
+  @apply mt-60 text-white font-custom  flex justify-center 
+}
+
+
+
+
+
+
+
+
+
