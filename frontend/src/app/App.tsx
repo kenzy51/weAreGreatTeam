@@ -7,7 +7,7 @@ import { AppRouter } from './providers/Router/ui/Router';
 const App = observer(() => {
   const { isAuth } = authStore;
 
-  if (!isAuth) {
+  if (isAuth) {
     return <AppRouter />;
   }
 
